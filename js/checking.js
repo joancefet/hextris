@@ -9,10 +9,7 @@ function search(twoD,oneD){
 }
 
 function floodFill(hex, side, index, deleting) {
-	if (hex.blocks[side] === undefined || hex.blocks[side][index] === undefined) {
-		//just makin sure stuff exists
-		return;
-	}
+	if (hex.blocks[side] === undefined || hex.blocks[side][index] === undefined) return;
 
 	//store the color
 	var color = hex.blocks[side][index].color;
@@ -82,6 +79,6 @@ function consolidateBlocks(hex,side,index){
 	}
 	var adder = deleting.length * deleting.length * hex.comboMultiplier;
 	hex.texts.push(new Text(hex.x,hex.y,"+ "+adder.toString(),"bold Q ",deletedBlocks[0].color,fadeUpAndOut));
-        hex.lastColorScored = deletedBlocks[0].color;
+		hex.lastColorScored = deletedBlocks[0].color;
 	score += adder;
 }
